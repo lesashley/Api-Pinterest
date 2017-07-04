@@ -1,0 +1,18 @@
+header {
+    height: 70px;
+    padding: 16px 2%;
+    border-bottom: 1px solid whitesmoke;
+    & .buscar {
+        height: 34px;
+        background-color: #efefef;
+        border-radius: 5px;
+    }
+    & input {
+        border: none;
+        height: 34px;
+        background-color: transparent;
+        outline: none;
+        width: 90%;
+        margin-left: 2%;
+    }
+}

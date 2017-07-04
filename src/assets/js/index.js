@@ -1,15 +1,12 @@
 'use strict';
 
 const render = (root) => {
-  console.log("entra en ruth");
     root.empty();
-    root.append(Search());
+    root.append(Header());
 };
 
 const state = {
-    pin: null,
-    
-    /*selectedPokemon: null*/
+    pin: null
 };
 
 $(_ => {
@@ -21,12 +18,6 @@ $(_ => {
         }
 
         state.pin = json;
-/*        console.log(state.pin.data[0].metadata.article.name);
-        console.log(state.pin.data[0].image.original.url);
-        console.log(state.pin.data[0].image.original.);
-        console.log(state.pin.data[0].metadata.article.description);
-        console.log(state.pin.data[0].image.original.url);*/
-
         const root = $('.root');
         render(root);
     });

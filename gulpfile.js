@@ -8,6 +8,7 @@ var config = {
 
 var paths = {
   assets: "assets/",
+
   html: "**/*.html",
   sass: "scss/**/*.scss",
   mainSass: "scss/main.scss",

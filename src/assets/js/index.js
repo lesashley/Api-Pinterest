@@ -8,6 +8,7 @@ const render = (root) => {
 
 const state = {
     pin: null,
+    
     /*selectedPokemon: null*/
 };
 

@@ -1,10 +1,9 @@
 'use strict';
 
 const render = (root) => {
+  console.log("entra en ruth");
     root.empty();
-    // Append components
-    root.append(Header());
-    //root.append(Search());
+    root.append(Search());
 };
 
 const state = {

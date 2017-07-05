@@ -1,74 +1,95 @@
-var gulp=require('gulp');
-var sass = require('gulp-sass');
-var browserify=require('gulp-browserify');
-// tiene una funcion de reload que una vez
-var rename=require('gulp-rename');
-var browserSync=require('browser-sync').create();
+'use strict';
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const browserify = require('gulp-browserify');
+const rename = require('gulp-rename');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const browserSync = require('browser-sync').create();
 
-var config = { //objetos
-  source: './src/', //origen
-  dist: './public/' //destino
+const config = {
+	source: "./src/",
+	dist: "./public/"
 };
 
-var paths = { //los directorios  //objetos
-  assets:'assets/',
-html:"**/*.html",
-js: "js/**.js",
-sass:'scss/**/*.scss',
-mainSass:'scss/style.scss',
-mainJs :'js/index.js'
+const paths = {
+	assets: "assets/",
+	html: "/*.html",
+	js: "js/**/*.js",
+	sass: "scss/**/*.scss",
+	img: "images/*.png",
+	mainSass: "scss/style.scss",
+	mainJs: "js/index.js"
 };
 
-var sources = { //match de config y paths
-  assets: config.source + paths.assets,
-  html: config.source + paths.html,
-  sass: paths.assets + paths.assets +paths.sass,
-  js: config.source + paths.assets + paths.js,
-  rootSass: config.source + paths.assets + paths.mainSass,
-  rootJS: config.source + paths.assets + paths.mainJS
+const sources = {
+	assets: config.source + paths.assets,
+	html: config.source + paths.html,
+	sass: paths.assets + paths.sass,
+	js: paths.assets + paths.js,
+	img: paths.assets + paths.img,
+	rootSass: config.source + paths.assets + paths.mainSass,
+	rootJs: config.source + paths.assets + paths.js
 };
-
-gulp.task('html', () => {
-  gulp.src(sources.html).pipe(gulp.dest(config.dist));
+gulp.task('img', ()=>{
+	gulp.src(config.source+sources.img)
+	.pipe(gulp.dest(config.dist+paths.assets+"img"))
 });
 
-gulp.task("sass", function() {
-  gulp.src(sources.rootSass)
-    .pipe(sass({
-      outputStyle: "compressed"
-    }).on("error", sass.logError))
-    .pipe(gulp.dest(config.dist + paths.assets + "css"));
+//configurando las tareas en gulp
+gulp.task('html', ()=>{
+	gulp.src(sources.html)
+	.pipe(gulp.dest(config.dist));
 });
 
-gulp.task("js", function() {
-  gulp.src(sources.js)
-    .pipe(browserify())
-    .pipe(rename("bundle.js"))
-    .pipe(gulp.dest(config.dist + paths.assets + 'js'));
+gulp.task('sass', ()=>{
+	gulp.src(sources.rootSass)
+	.pipe(sass({
+			outputStyle: "compressed"
+		}).on("Error", sass.logError))
+	.pipe(gulp.dest(config.dist+paths.assets+"css"));
 });
 
-gulp.task("sass-watch", ["sass"], function(done) {
-  browserSync.reload();
-  done();
+gulp.task('js', ()=>{
+	gulp.src(["./src/assets/js/components/dashboard.js","./src/assets/js/components/header.js","./src/assets/js/utils/get-json.js","./src/assets/js/index.js"])
+	.pipe(concat('index.js'))
+	.pipe(gulp.dest(config.dist+paths.assets+"js"))
 });
 
-gulp.task("js-watch", ["js"], function(done) {
-  browserSync.reload();
-  done();
+// gulp.task('img', ()=>{
+// 	gulp.src(config.source+sources.images)
+// 	.pipe(gulp.dest(config.dist+paths.assets+"img"))
+// });
+
+gulp.task('sass-watch',['sass'], (done)=>{
+	browserSync.reload();
+	done();
 });
 
-gulp.task("html-watch", ["html"], function(done) {
-  browserSync.reload();
-  done();
+gulp.task('js-watch',['js'], (done)=>{
+	browserSync.reload();
+	done();
 });
 
-gulp.task("serve",function() {
-  browserSync.init({
-    server: {
-      baseDir: config.dist
-    }
-  });
-  gulp.watch(sources.html, ["html-watch"]);
-  gulp.watch(sources.sass, ["sass-watch"]);
-  gulp.watch(sources.rootJS, ["js-watch"]);
+gulp.task('html-watch',['html'], (done)=>{
+	browserSync.reload();
+	done();
+});
+
+gulp.task('img-watch',['img'], (done)=>{
+	browserSync.reload();
+	done();
+});
+
+gulp.task('serve', ()=>{
+	browserSync.init({
+		server:{
+			baseDir: config.dist
+		}
+	});
+
+	gulp.watch(sources.html, ['html-watch']);
+	gulp.watch(config.source+sources.sass, ['sass-watch']);
+	gulp.watch(config.source+sources.js, ['js-watch']);
+	gulp.watch(config.source+sources.img, ['img-watch']);
 });

@@ -3,10 +3,14 @@
 const render = (root) => {
     root.empty();
     root.append(Header());
+    root.append(Dashboard());
 };
 
 const state = {
-    pin: null
+    pin: null,
+    nameUser: null,
+    photoUser: null,
+    nameBoard: null
 };
 
 $(_ => {

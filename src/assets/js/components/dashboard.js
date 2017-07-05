@@ -21,7 +21,9 @@ var crearTablero = function (tablero) {
       //var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
         console.log(tablero[i].metadata);
         pin.append(articleName);
+
       // pin.append(linkTitle);
+
         pin.append(image);
         pin.append(nameUser);
         pin.append(photoUser);
@@ -31,8 +33,6 @@ var crearTablero = function (tablero) {
 
 const Dashboard = () => {
     var div = $('<div class="container"></div>');
-
     div.append(crearTablero(state.pin.data));
-
     return div;
 }

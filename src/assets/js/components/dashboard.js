@@ -18,13 +18,13 @@ var crearTablero = function (tablero) {
         var nameUser = $('<span class="">' + state.nameUser + '</span>');
         var photoUser = $('<img class="img-tablero" src="' + state.photoUser + '" alt="">');
         var articleName = $("<span> " + tablero[i].note + "</span>");
-        // var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
+      //var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
         console.log(tablero[i].metadata);
-        //pin.append(articleName);
-        //pin.append(linkTitle);
+        pin.append(articleName);
+      // pin.append(linkTitle);
         pin.append(image);
-        /*pin.append(nameUser);
-        pin.append(photoUser);*/
+        pin.append(nameUser);
+        pin.append(photoUser);
     }
     return pin;
 }

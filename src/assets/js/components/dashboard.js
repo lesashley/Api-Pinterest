@@ -20,19 +20,17 @@ var crearTablero = function (tablero) {
         var articleName = $("<span> " + tablero[i].note + "</span>");
         // var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
         console.log(tablero[i].metadata);
-        //pin.append(articleName);
+        pin.append(articleName);
         //pin.append(linkTitle);
         pin.append(image);
-        /*pin.append(nameUser);
-        pin.append(photoUser);*/
+        pin.append(nameUser);
+        pin.append(photoUser);
     }
     return pin;
 }
 
 const Dashboard = () => {
     var div = $('<div class="container"></div>');
-
     div.append(crearTablero(state.pin.data));
-
     return div;
 }

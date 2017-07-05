@@ -15,16 +15,16 @@ var crearTablero = function (tablero) {
     var pin = $('<div class="row"></div>');
     for (var i = 0; i < tablero.length; i++) {
         var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
-        var nameUser = $('<p class="">' + state.nameUser + '</p>');
+        var nameUser = $('<span class="">' + state.nameUser + '</span>');
         var photoUser = $('<img class="img-tablero" src="' + state.photoUser + '" alt="">');
-        //var articleName = $("<p> " + tablero[i].metadata.article.name + "</p>");
+        var articleName = $("<span> " + tablero[i].note + "</span>");
         // var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
         console.log(tablero[i].metadata);
         //pin.append(articleName);
         //pin.append(linkTitle);
         pin.append(image);
-        pin.append(nameUser);
-        pin.append(photoUser);
+        /*pin.append(nameUser);
+        pin.append(photoUser);*/
     }
     return pin;
 }

@@ -52,7 +52,7 @@ gulp.task('sass', ()=>{
 });
 
 gulp.task('js', ()=>{
-	gulp.src(["./src/assets/js/components/dashboard.js","./src/assets/js/components/header.js","./src/assets/js/utils/get-json.js","./src/assets/js/index.js"])
+	gulp.src(["./src/assets/js/components/modal1.js","./src/assets/js/components/dashboard.js","./src/assets/js/components/header.js","./src/assets/js/utils/get-json.js","./src/assets/js/index.js"])
 	.pipe(concat('index.js'))
 	.pipe(browserify())
 	.pipe(gulp.dest(config.dist+paths.assets+"js"))

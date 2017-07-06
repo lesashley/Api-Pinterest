@@ -1,12 +1,12 @@
 'use strict';
 
-const render = (root) => {
+var render = (root) => {
     root.empty();
     root.append(Header());
     root.append(Dashboard());
 };
 
-const state = {
+var state = {
     dashboard:null,
     likeBoard: null,
     followBoard:null,

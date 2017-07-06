@@ -24,7 +24,7 @@ const Dashboard = () => {
                   console.log(state.data.board.name);
                   console.log(state.data.creator.first_name);
 
-                  if (state.data.attribution !== undefined ) {
+                  if (state.data.attribution !== null) {
                       console.log(state.data.attribution.title);
                       console.log(state.data.attribution.provider_name);
                       console.log(state.data.attribution.provider_favicon_url);

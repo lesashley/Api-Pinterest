@@ -2,7 +2,7 @@
 var crearTablero =  (tablero) => {
   var pin = $('<div class="row board"></div>');
     for (var i = 0; i < tablero.length; i++) {
-      var container = $('<div class="column-xs-2 board__item"></div>');
+      var container = $('<div class="column-md-2 column-xs-5 board__item"></div>');
       var containerHover = $('<div class="board__item--hover"></div>');
 
       var image = $('<img class="img-tablero" data-id="'+tablero[i].id+'" data-toggle="modal" data-target="#myModal"  src="' + tablero[i].image.original.url + '" alt="">');
@@ -24,18 +24,10 @@ var crearTablero =  (tablero) => {
         //console.log(e.target.src);
         console.log($(this).attr('data-id'));
 
-        //.setAttribute(name, value)
-
-        // state.pin.data.forEach(function (e) {
-        //   console.log(e.id);
         $(".root").empty();
         $(".root").append(crearModal(e.target.src,$(this).attr('data-id')));
       });
-      // image.on('click', () => {
-      //   alert("dfsd");
-      //   containerHover.append('<div>dsjkfhdjhkjds</div>');
-      // });
-      containerHover.append(image);
+        containerHover.append(image);
       containerHover.append(btnCompartir);
       containerHover.append(button);
       containerHover.append(linkTitle);

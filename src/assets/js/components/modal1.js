@@ -1,5 +1,5 @@
 const crearModal = (id) => {
-  
+
   const myModal = $('<div class="row"></div>');
   const ekis = $('<button type="button" class="close" data-dismiss="modal"> &times;</button>');
   const modalDialog = $('<div class="modal-dialog"></div>');

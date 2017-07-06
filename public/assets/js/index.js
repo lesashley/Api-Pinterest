@@ -1,36 +1,45 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
-var crearTablero = function (tablero) {
+var crearTablero =  (tablero) => {
   var pin = $('<div class="row board"></div>');
     for (var i = 0; i < tablero.length; i++) {
-      var container = $('<div class="column-xs-2 board__item"></div>');
+      var container = $('<div class="column-md-2 column-xs-5 board__item"></div>');
       var containerHover = $('<div class="board__item--hover"></div>');
-      var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
+
+      var image = $('<img class="img-tablero" data-id="'+tablero[i].id+'" data-toggle="modal" data-target="#myModal"  src="' + tablero[i].image.original.url + '" alt="">');
       var button = $('<button class="btn-guardar"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
       var btnCompartir = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
-      var articleName = $("<p> " + tablero[i].note + "</p>");
+      var articleName = $("<p class='name-pin'> " + tablero[i].note + "</p>");
       var contentUser = $('<div class="content-user"></div>');
       var photoUser = $('<img class="img-user" src="' + state.photoUser + '" alt="">');
-      var nameUser = $('<span class="">' + state.nameUser + '</span>');
+      var nameUser = $('<span class="name-user">' + state.nameUser + '</span>');
+      var nameboard = $('<p class="name-board">'+state.nameBoard+'</p>');
       if (tablero[i].metadata.article != undefined) {
-        // console.log(tablero[i].metadata.article.name);
-        var linkTitle = $("<p> " + tablero[i].metadata.article.name + "</p>");
+        var linkTitle = $("<p><strong> " + tablero[i].metadata.article.name + "</strong></p>");
       }
+      // console.log(state.pin.data[i].id);
+      state.modal = i;
 
-      containerHover.append(image);
+
+      image.on('click', function (e) {
+        //console.log(e.target.src);
+        console.log($(this).attr('data-id'));
+
+        $(".root").empty();
+        $(".root").append(crearModal(e.target.src,$(this).attr('data-id')));
+      });
+        containerHover.append(image);
       containerHover.append(btnCompartir);
       containerHover.append(button);
       containerHover.append(linkTitle);
       containerHover.append(articleName);
       contentUser.append(photoUser);
       contentUser.append(nameUser);
+      contentUser.append(nameboard);
       containerHover.append(contentUser);
       container.append(containerHover);
       pin.append(container);
 
-      containerHover.on('click', () => {
-        container.append(crearModal(tablero[i].image.original.url));
-      });
     }
     return pin;
 }
@@ -104,12 +113,13 @@ const render = (root) => {
 };
 
 const state = {
-    totalPin : null,
-    totalFollowers : null,
-    pin: null,
-    nameUser: null,
-    photoUser: null,
-    nameBoard: null
+  modal : null,
+  totalPin : null,
+  totalFollowers : null,
+  pin: null,
+  nameUser: null,
+  photoUser: null,
+  nameBoard: null
 };
 
 $(_ => {

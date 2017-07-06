@@ -4,7 +4,8 @@ var crearTablero =  (tablero) => {
     for (var i = 0; i < tablero.length; i++) {
       var container = $('<div class="column-xs-2 board__item"></div>');
       var containerHover = $('<div class="board__item--hover"></div>');
-      var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
+      //<img src="assets/img/pencil.png" data-toggle="modal" data-target="#myModal">
+      var image = $('<img class="img-tablero" data-id="'+tablero[i].id+'" data-toggle="modal" data-target="#myModal"  src="' + tablero[i].image.original.url + '" alt="">');
       var button = $('<button class="btn-guardar"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
       var btnCompartir = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
       var articleName = $("<p class='name-pin'> " + tablero[i].note + "</p>");
@@ -19,7 +20,10 @@ var crearTablero =  (tablero) => {
       state.modal = i;
 
       image.on('click', function (e) {
-        console.log(e.target.src);
+        //console.log(e.target.src);
+        console.log($(this).attr('data-id'));
+
+        //.setAttribute(name, value)
         // state.pin.data.forEach(function (e) {
         //   console.log(e.id);
         })

@@ -22,7 +22,6 @@
 
     img{
       float: right;
-
     }
   }
 }
@@ -104,4 +103,11 @@
   margin-left: 23px;
   font-size: 1.3rem;
   color: rgb(68, 68, 68);
+}
+.close{
+  position: absolute;
+  font-size: 53px;
+}
+.btn-close{
+  right: 30px;
 }

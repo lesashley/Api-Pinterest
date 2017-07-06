@@ -6,6 +6,5 @@ const Header = () => {
 
     row.append(content);
     header.append(row);
-
     return header;
 }

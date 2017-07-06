@@ -5,10 +5,6 @@ $.getJSON("https://api.pinterest.com/v1/users/arabelyuska/?access_token=AVhrwnNQ
     state.photoUser = response.data.image["60x60"].url;
     state.nameUser = response.data.first_name;
 });
-
-
-console.log("getjson"+state.dashboard);
-
 const getJSON = (url, cb) => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', () => {

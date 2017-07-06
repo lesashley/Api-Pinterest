@@ -1,5 +1,5 @@
 'use strict';
-var crearTablero = function (tablero) {
+var crearTablero =  (tablero) => {
   var pin = $('<div class="row board"></div>');
     for (var i = 0; i < tablero.length; i++) {
       var container = $('<div class="column-xs-2 board__item"></div>');
@@ -7,15 +7,29 @@ var crearTablero = function (tablero) {
       var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
       var button = $('<button class="btn-guardar"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
       var btnCompartir = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
-      var articleName = $("<p> " + tablero[i].note + "</p>");
+      var articleName = $("<p class='name-pin'> " + tablero[i].note + "</p>");
       var contentUser = $('<div class="content-user"></div>');
       var photoUser = $('<img class="img-user" src="' + state.photoUser + '" alt="">');
-      var nameUser = $('<span class="">' + state.nameUser + '</span>');
+      var nameUser = $('<span class="name-user">' + state.nameUser + '</span>');
+      var nameboard = $('<p class="name-board">'+state.nameBoard+'</p>');
       if (tablero[i].metadata.article != undefined) {
-        // console.log(tablero[i].metadata.article.name);
-        var linkTitle = $("<p> " + tablero[i].metadata.article.name + "</p>");
+        var linkTitle = $("<p><strong> " + tablero[i].metadata.article.name + "</strong></p>");
       }
+      // console.log(state.pin.data[i].id);
+      state.modal = i;
 
+      image.on('click', function () {
+        console.log(i);
+        // state.pin.data.forEach(function (e) {
+        //   console.log(e.id);
+        })
+        // $(".root").empty();
+        // $(".root").append(crearModal(tablero[i].id));
+      // });
+      // image.on('click', () => {
+      //   alert("dfsd");
+      //   containerHover.append('<div>dsjkfhdjhkjds</div>');
+      // });
       containerHover.append(image);
       containerHover.append(btnCompartir);
       containerHover.append(button);
@@ -23,13 +37,11 @@ var crearTablero = function (tablero) {
       containerHover.append(articleName);
       contentUser.append(photoUser);
       contentUser.append(nameUser);
+      contentUser.append(nameboard);
       containerHover.append(contentUser);
       container.append(containerHover);
       pin.append(container);
 
-      containerHover.on('click', () => {
-        container.append(crearModal(tablero[i].image.original.url));
-      });
     }
     return pin;
 }

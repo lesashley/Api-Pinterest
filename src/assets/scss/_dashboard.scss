@@ -31,6 +31,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  column-count: 5;
   &__item{
     margin: 0 auto;
     text-align: center;
@@ -89,4 +90,18 @@
 .img-user{
   width: 24px;
   border-radius: 50%;
+}
+.name-pin{
+  font-size: 1.2rem;
+}
+.name-user{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+}
+.name-board{
+  margin-top: 0;
+  margin-left: 23px;
+  font-size: 1.3rem;
+  color: rgb(68, 68, 68);
 }

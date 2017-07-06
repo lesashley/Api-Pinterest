@@ -7,12 +7,13 @@ const render = (root) => {
 };
 
 const state = {
-    totalPin : null,
-    totalFollowers : null,
-    pin: null,
-    nameUser: null,
-    photoUser: null,
-    nameBoard: null
+  modal : null,
+  totalPin : null,
+  totalFollowers : null,
+  pin: null,
+  nameUser: null,
+  photoUser: null,
+  nameBoard: null
 };
 
 $(_ => {

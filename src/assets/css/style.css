@@ -61,7 +61,8 @@
 .board {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start; }
+  align-items: flex-start;
+  column-count: 5; }
   .board__item {
     margin: 0 auto;
     text-align: center;
@@ -112,6 +113,20 @@
 .img-user {
   width: 24px;
   border-radius: 50%; }
+
+.name-pin {
+  font-size: 1.2rem; }
+
+.name-user {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #525252; }
+
+.name-board {
+  margin-top: 0;
+  margin-left: 23px;
+  font-size: 1.3rem;
+  color: #444444; }
 
 @media (min-width: 0) {
   .column-xs-1 {

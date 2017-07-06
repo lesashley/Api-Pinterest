@@ -5,11 +5,7 @@ $.getJSON("https://api.pinterest.com/v1/users/arabelyuska/?access_token=AVhrwnNQ
     state.photoUser = response.data.image["60x60"].url;
     state.nameUser = response.data.first_name;
 });
-$.getJSON("https://api.pinterest.com/v1/boards/arabelyuska/web-ui/pins/?access_token=AVUVLtoZxB4BT1NR9CasIVZk9p01FM6ZlbrbHTZEI1kRKQBDLwAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cattribution%2Cmetadata%2Ccolor%2Cboard%2Ccounts%2Coriginal_link%2Ccreated_at%2Ccreator%2Cimage%2Cmedia", (response) => {
-     state.dashboard=response.data;
-    console.log("el valor linea 10"+response.data);
 
-});
 
 console.log("getjson"+state.dashboard);
 

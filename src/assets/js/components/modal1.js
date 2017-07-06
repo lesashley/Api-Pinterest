@@ -16,7 +16,7 @@ const crearModal = (id) => {
     $('.root').empty();
     $('.root').append(Header());
     $(".root").append(Dashboard());
-  })
+  });
 
   modalBody.append(imgRecibida);
   modalBody.append(divGuardadoDesde);

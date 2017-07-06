@@ -26,11 +26,13 @@
     background-color: rgba(255, 255, 255, 0.91);
     color: #fff; }
     .header__below--seguir {
-      font-size: 1.4rem;
       font-weight: bold;
       border: 0;
+      border-radius: 5px;
       padding: 10px;
       background-color: #B80D21;
+      font-weight: bold;
+      font-size: 1.7rem;
       width: 150px; }
     .header__below--icon {
       color: #c3c3c3;
@@ -38,7 +40,7 @@
 
 #board {
   position: relative;
-  top: 100px; }
+  top: 130px; }
 
 .board {
   display: flex;
@@ -53,7 +55,7 @@
       padding: 10px 10px;
       text-align: left; }
     .board__item--hover:hover {
-      background-color: #cbcbcb; }
+      background-color: #f2f2f2; }
     .board__item--hover:hover .btn-guardar {
       display: block; }
     .board__item--hover:hover .btn-share {
@@ -83,7 +85,7 @@
   display: none; }
 
 .img-tablero:hover {
-  opacity: 0.8; }
+  background-color: #DADADA; }
 
 .img-tablero {
   width: 100%;

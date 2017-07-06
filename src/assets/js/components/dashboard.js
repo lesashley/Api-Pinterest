@@ -36,13 +36,15 @@ var crearTablero = function (tablero) {
 
 const Dashboard = () => {
     var div = $('<div class="container-fluid" id="board"></div>');
+    var title = $('<div class="title-center"></div>');
     var nameDashboard = $('<div><h1>nameBoard</h1><div>');
     var pines = $('<p>pines</p>');
     var seguidores = $('<p>seguidores</p>');
 
-    div.append(nameDashboard);
-    div.append(pines);
-    div.append(seguidores);
+    title.append(nameDashboard);
+    title.append(pines);
+    title.append(seguidores);
+    div.append(title);
     div.append(crearTablero(state.pin.data));
     return div;
 }

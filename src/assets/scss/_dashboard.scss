@@ -1,6 +1,7 @@
 #board{
   position: relative;
-  top: 100px;
+  top: 130px;
+  // text-align: center;
 }
 .board{
   display: flex;
@@ -16,7 +17,7 @@
       text-align: left;
     }
     &--hover:hover{
-      background-color: rgb(203, 203, 203);
+      background-color: rgb(242, 242, 242);
     }
     &--hover:hover .btn-guardar{
       display: block;
@@ -51,7 +52,7 @@
   display: none;
 }
 .img-tablero:hover{
-  opacity: 0.8;
+  background-color: #DADADA;
 }
 .img-tablero{
   width: 100%;

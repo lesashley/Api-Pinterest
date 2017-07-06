@@ -29,7 +29,7 @@ var crearTablero =  (tablero) => {
         // state.pin.data.forEach(function (e) {
         //   console.log(e.id);
         $(".root").empty();
-        $(".root").append(crearModal());
+        $(".root").append(crearModal(e.target.src,$(this).attr('data-id')));
       });
       // image.on('click', () => {
       //   alert("dfsd");

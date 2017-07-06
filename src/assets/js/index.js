@@ -7,18 +7,26 @@ const render = (root) => {
 };
 
 const state = {
-    pin: null,
+    dashBard:null,
+    likeBoard: null,
+    followBoard:null,
     nameUser: null,
     photoUser: null,
-    nameBoard: null
+    nameBoard: null,
+    data :null,
+    pinesID:[]
 };
 
 $(_ => {
-  getJSON('https://api.pinterest.com/v1/boards/arabelyuska/web-ui/pins/?access_token=AQA6SxA52Kr8rZEppfw-TgqsLSA6FM4qoiPYYN1EI1rXoUA7AwAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cmedia%2Cattribution%2Cboard%2Cmetadata%2Ccolor%2Ccounts%2Coriginal_link%2Ccreated_at%2Ccreator%2Cimage', (err, json) => {
+  getJSON('https://api.pinterest.com/v1/boards/arabelyuska/web-ui/?access_token=AQKhzJWjrZJ8RLCYLlCNMJw-vmYUFM6Q4vneskBEI1kRKQBDLwAAAAA&fields=id%2Cname%2Curl%2Ccounts%2Ccreated_at%2Ccreator%2Cdescription%2Cimage%2Cprivacy%2Creason', (err, json) => {
     if (err) {
         return alert(err.message);
     }
-    state.pin = json;
+    state.dashboard=json;
+    state.nameBoard = json.data.name;
+    state.likeBoard=json.data.counts.pins;
+      state.followBoard=json.data.counts.followers;
+
     const root = $('.root');
     render(root);
   });

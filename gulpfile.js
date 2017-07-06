@@ -31,10 +31,7 @@ const sources = {
 	rootSass: config.source + paths.assets + paths.mainSass,
 	rootJs: config.source + paths.assets + paths.js
 };
-gulp.task('img', ()=>{
-	gulp.src(config.source+sources.img)
-	.pipe(gulp.dest(config.dist+paths.assets+"img"))
-});
+
 
 //configurando las tareas en gulp
 gulp.task('html', ()=>{
@@ -56,10 +53,10 @@ gulp.task('js', ()=>{
 	.pipe(gulp.dest(config.dist+paths.assets+"js"))
 });
 
-// gulp.task('img', ()=>{
-// 	gulp.src(config.source+sources.images)
-// 	.pipe(gulp.dest(config.dist+paths.assets+"img"))
-// });
+gulp.task('img', ()=>{
+	gulp.src(config.source+sources.img)
+	.pipe(gulp.dest(config.dist+paths.assets+"img"))
+});
 
 gulp.task('sass-watch',['sass'], (done)=>{
 	browserSync.reload();

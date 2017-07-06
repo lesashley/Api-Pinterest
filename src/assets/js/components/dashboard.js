@@ -1,36 +1,48 @@
 'use strict';
-
-$.getJSON("https://api.pinterest.com/v1/boards/arabelyuska/web-ui/?access_token=AZin6-NmjSkiQF5vo3q_W1pxBXExFM49ahQddmdEI1kRKQBDLwAAAAA&fields=id%2Cname%2Curl%2Ccreated_at%2Ccounts%2Ccreator%2Cdescription%2Cimage%2Cprivacy%2Creason", (response) => {
-
-    state.nameBoard = response.data.creator.first_name;
-});
-
-$.getJSON("https://api.pinterest.com/v1/users/arabelyuska/?access_token=AVhrwnNQPhT0xkU5_77985FyoWdpFM5BKydQErFEI1kRKQBDLwAAAAA&fields=first_name%2Cid%2Clast_name%2Curl%2Cusername%2Caccount_type%2Cbio%2Ccreated_at%2Ccounts%2Cimage", (response) => {
-
-    state.photoUser = response.data.image["60x60"].url;
-    state.nameUser = response.data.first_name;
-});
-
 var crearTablero = function (tablero) {
-    var pin = $('<div class="row"></div>');
+  var pin = $('<div class="row board"></div>');
     for (var i = 0; i < tablero.length; i++) {
-        var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
-        var nameUser = $('<span class="">' + state.nameUser + '</span>');
-        var photoUser = $('<img class="img-tablero" src="' + state.photoUser + '" alt="">');
-        var articleName = $("<span> " + tablero[i].note + "</span>");
-        // var linkTitle = $("<p> " + tablero[i].metadata[0].name + "</p>");
-        console.log(tablero[i].metadata);
-        pin.append(articleName);
-        //pin.append(linkTitle);
-        pin.append(image);
-        pin.append(nameUser);
-        pin.append(photoUser);
+      var container = $('<div class="column-xs-2 board__item"></div>');
+      var containerHover = $('<div class="board__item--hover"></div>');
+      var image = $('<img class="img-tablero" src="' + tablero[i].image.original.url + '" alt="">');
+      var button = $('<button class="btn-guardar"><i class="glyphicon glyphicon-pushpin"></i>Guardar</button>');
+      var btnCompartir = $('<button class="btn-share"><i class="glyphicon glyphicon-share"></i></button>');
+      var articleName = $("<p> " + tablero[i].note + "</p>");
+      var contentUser = $('<div class="content-user"></div>');
+      var photoUser = $('<img class="img-user" src="' + state.photoUser + '" alt="">');
+      var nameUser = $('<span class="">' + state.nameUser + '</span>');
+      // console.log(tablero[i].metadata.article);
+      // console.log(tablero[i].metadata.article ==  undefined);
+      if (tablero[i].metadata.article != undefined) {
+        // console.log("entro");
+        console.log(tablero[i].metadata.article.name);
+        var linkTitle = $("<p> " + tablero[i].metadata.article.name + "</p>");
+      }
+
+      // console.log(tablero[i].metadata);
+      containerHover.append(image);
+      containerHover.append(btnCompartir);
+      containerHover.append(button);
+      containerHover.append(linkTitle);
+      containerHover.append(articleName);
+      contentUser.append(photoUser);
+      contentUser.append(nameUser);
+      containerHover.append(contentUser);
+      container.append(containerHover);
+      pin.append(container);
     }
     return pin;
 }
 
 const Dashboard = () => {
-    var div = $('<div class="container"></div>');
+    var div = $('<div class="container-fluid" id="board"></div>');
+    var nameDashboard = $('<div><h1>nameBoard</h1><div>');
+    var pines = $('<p>pines</p>');
+    var seguidores = $('<p>seguidores</p>');
+
+    div.append(nameDashboard);
+    div.append(pines);
+    div.append(seguidores);
     div.append(crearTablero(state.pin.data));
     return div;
 }

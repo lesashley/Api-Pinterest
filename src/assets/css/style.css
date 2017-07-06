@@ -1,20 +1,227 @@
-header {
+.header {
   height: 70px;
   padding: 16px 2%;
-  border-bottom: 1px solid whitesmoke; }
-  header .buscar {
-    height: 34px;
-    background-color: #efefef;
-    border-radius: 5px; }
-  header input {
-    border: none;
-    height: 34px;
-    background-color: transparent;
-    outline: none;
-    width: 90%;
-    margin-left: 2%; }
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 5; }
+  .header__top {
+    padding-bottom: 10px;
+    border-bottom: 1px solid whitesmoke; }
+    .header__top--buscar {
+      height: 38px;
+      background-color: #efefef;
+      border-radius: 5px; }
+    .header__top input {
+      border: none;
+      height: 34px;
+      background-color: transparent;
+      outline: none;
+      width: 90%;
+      margin-left: 2%; }
+  .header__below {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.91);
+    color: #fff; }
+    .header__below--seguir {
+      font-size: 1.4rem;
+      font-weight: bold;
+      border: 0;
+      padding: 10px;
+      background-color: #B80D21;
+      width: 150px; }
+    .header__below--icon {
+      color: #c3c3c3;
+      font-size: 3rem; }
+
+#board {
+  position: relative;
+  top: 100px; }
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; }
+  .board__item {
+    margin: 0 auto;
+    text-align: center;
+    position: relative; }
+    .board__item--hover {
+      border-radius: 10px;
+      padding: 10px 10px;
+      text-align: left; }
+    .board__item--hover:hover {
+      background-color: #cbcbcb; }
+    .board__item--hover:hover .btn-guardar {
+      display: block; }
+    .board__item--hover:hover .btn-share {
+      display: block; }
+
+.btn-guardar {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 9px;
+  font-weight: bold;
+  background-color: #B80D21;
+  display: none; }
+
+.btn-share {
+  border: 0;
+  color: #707070;
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 2rem;
+  display: none; }
+
+.img-tablero:hover {
+  opacity: 0.8; }
 
 .img-tablero {
-  width: 200px; }
+  width: 100%;
+  border-radius: 10px;
+  z-index: 3;
+  cursor: pointer; }
+
+.img-user {
+  width: 24px;
+  border-radius: 50%; }
+
+@media (min-width: 0) {
+  .column-xs-1 {
+    width: 10%; }
+
+  .column-xs-2 {
+    width: 20%; }
+
+  .column-xs-3 {
+    width: 30%; }
+
+  .column-xs-4 {
+    width: 40%; }
+
+  .column-xs-5 {
+    width: 50%; }
+
+  .column-xs-6 {
+    width: 60%; }
+
+  .column-xs-7 {
+    width: 70%; }
+
+  .column-xs-8 {
+    width: 80%; }
+
+  .column-xs-9 {
+    width: 90%; }
+
+  .column-xs-10 {
+    width: 100%; } }
+@media (min-width: 768px) {
+  .column-sm-1 {
+    width: 10%; }
+
+  .column-sm-2 {
+    width: 20%; }
+
+  .column-sm-3 {
+    width: 30%; }
+
+  .column-sm-4 {
+    width: 40%; }
+
+  .column-sm-5 {
+    width: 50%; }
+
+  .column-sm-6 {
+    width: 60%; }
+
+  .column-sm-7 {
+    width: 70%; }
+
+  .column-sm-8 {
+    width: 80%; }
+
+  .column-sm-9 {
+    width: 90%; }
+
+  .column-sm-10 {
+    width: 100%; } }
+@media (min-width: 992px) {
+  .column-md-1 {
+    width: 10%; }
+
+  .column-md-2 {
+    width: 20%; }
+
+  .column-md-3 {
+    width: 30%; }
+
+  .column-md-4 {
+    width: 40%; }
+
+  .column-md-5 {
+    width: 50%; }
+
+  .column-md-6 {
+    width: 60%; }
+
+  .column-md-7 {
+    width: 70%; }
+
+  .column-md-8 {
+    width: 80%; }
+
+  .column-md-9 {
+    width: 90%; }
+
+  .column-md-10 {
+    width: 100%; } }
+@media (min-width: 1200px) {
+  .column-lg-1 {
+    width: 10%; }
+
+  .column-lg-2 {
+    width: 20%; }
+
+  .column-lg-3 {
+    width: 30%; }
+
+  .column-lg-4 {
+    width: 40%; }
+
+  .column-lg-5 {
+    width: 50%; }
+
+  .column-lg-6 {
+    width: 60%; }
+
+  .column-lg-7 {
+    width: 70%; }
+
+  .column-lg-8 {
+    width: 80%; }
+
+  .column-lg-9 {
+    width: 90%; }
+
+  .column-lg-10 {
+    width: 100%; } }
+.row::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+[class*="column-"] {
+  float: left;
+  padding: 5px; }
 
 /*# sourceMappingURL=style.css.map */

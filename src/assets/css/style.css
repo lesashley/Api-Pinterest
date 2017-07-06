@@ -42,6 +42,22 @@
   position: relative;
   top: 130px; }
 
+.header-board {
+  margin: 0 auto;
+  text-align: center; }
+  .header-board__title {
+    text-align: left;
+    font-size: 4.7rem;
+    font-weight: bold;
+    color: #555; }
+  .header-board__info {
+    text-align: left; }
+  .header-board__photo {
+    border-radius: 50%;
+    margin-top: 60px; }
+    .header-board__photo img {
+      float: right; }
+
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -85,7 +101,7 @@
   display: none; }
 
 .img-tablero:hover {
-  background-color: #DADADA; }
+  -webkit-filter: contrast(80%); }
 
 .img-tablero {
   width: 100%;

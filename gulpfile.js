@@ -16,8 +16,10 @@ const paths = {
 	assets: "assets/",
 	html: "/*.html",
 	js: "js/**/*.js",
+	components: "js/components/**.js",
+	utils: "js/utils/**.js",
 	sass: "scss/**/*.scss",
-	img: "images/*.png",
+	img: "img/*.png",
 	mainSass: "scss/style.scss",
 	mainJs: "js/index.js"
 };
@@ -27,9 +29,11 @@ const sources = {
 	html: config.source + paths.html,
 	sass: paths.assets + paths.sass,
 	js: paths.assets + paths.js,
+	components: config.source + paths.assets + paths.components,
+  utils: config.source+paths.assets+ paths.utils,
 	img: paths.assets + paths.img,
 	rootSass: config.source + paths.assets + paths.mainSass,
-	rootJs: config.source + paths.assets + paths.js
+	rootJs: config.source + paths.assets + paths.mainJs
 };
 
 
@@ -50,6 +54,7 @@ gulp.task('sass', ()=>{
 gulp.task('js', ()=>{
 	gulp.src(["./src/assets/js/components/dashboard.js","./src/assets/js/components/header.js","./src/assets/js/utils/get-json.js","./src/assets/js/index.js"])
 	.pipe(concat('index.js'))
+	.pipe(browserify())
 	.pipe(gulp.dest(config.dist+paths.assets+"js"))
 });
 

@@ -18,8 +18,8 @@ var crearTablero =  (tablero) => {
       // console.log(state.pin.data[i].id);
       state.modal = i;
 
-      image.on('click', function () {
-        console.log(i);
+      image.on('click', function (e) {
+        console.log(e.target.src);
         // state.pin.data.forEach(function (e) {
         //   console.log(e.id);
         })

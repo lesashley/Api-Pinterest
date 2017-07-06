@@ -1,7 +1,8 @@
 header {
   height: 70px;
   padding: 16px 2%;
-  border-bottom: 1px solid whitesmoke; }
+  border-bottom: 1px solid whitesmoke;
+  position: fixed; }
   header .buscar {
     height: 34px;
     background-color: #efefef;
@@ -16,5 +17,35 @@ header {
 
 .img-tablero {
   width: 200px; }
+
+.modal {
+  background-color: #eeeeee;
+  cursor: zoom-out; }
+
+.modal-content {
+  -webkit-box-shadow: 0 0 !important;
+  box-shadow: 0 0 !important;
+  border: 0 !important;
+  cursor: default; }
+
+.modal-header {
+  border-bottom: 0 !important; }
+
+.border {
+  border-bottom: 1px solid #e2dfdf;
+  padding: 10px 0; }
+
+.btn-guardar {
+  background-color: #bd081c;
+  color: #efefef;
+  font-weight: bold !important;
+  float: right; }
+
+.btn-guardar:hover {
+  color: #efefef !important; }
+
+button.close {
+  padding-right: 5% !important;
+  margin-top: 2%; }
 
 /*# sourceMappingURL=style.css.map */

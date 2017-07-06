@@ -1,9 +1,9 @@
 'use strict';
 
 const render = (root) => {
-    root.empty();
-    root.append(Header());
-    root.append(Dashboard());
+    /*root.empty();
+    root.append(Header());*/
+    //root.append(Dashboard());
 };
 
 const state = {

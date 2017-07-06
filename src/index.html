@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Pinterest</title>
-      <link rel="stylesheet" href="assets/css/style.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body class="root">
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="assets/js/utils/get-json.js"></script>
-      <script src="assets/js/components/header.js"></script>
-      <script src="assets/js/components/dashboard.js"></script>
-      <script src="assets/js/index.js"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pinterest</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body class="root">
+   <!--La imagen deberia llevar estos atributos-->
+    <img src="assets/img/pencil.png" data-toggle="modal" data-target="#myModal">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img width="34" src="assets/img/more.png" />
+                    <img width="34" src="assets/img/more.png" />
+                    <img width="34" src="assets/img/more.png" />
+                    <button type="button" class="btn btn-guardar" data-dismiss="modal"><i class="glyphicon glyphicon-pushpin"></i> Guardar</button>
+                </div>
+                <div class="modal-body">
+                    Aqi debe ir la imagen a la cual se le dio click
+                    <img src="assets/img/arrow.png" alt="">
+                    <div class="border">
+                        <div class="row">
+                            <div class="col-xs-1">
+                                <i class="glyphicon glyphicon-globe"></i>
+                            </div>
+                            <div class="col-xs-9">
+                                <p>Guardado desde <br><strong>Behance</strong></p>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn" data-dismiss="modal">Visitar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <i class="glyphicon glyphicon-globe"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                <p><strong>Arabela</strong> lo ha guardado en <strong>Web UI</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <h4><strong>Comentarios</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/utils/get-json.js"></script>
+    <script src="assets/js/components/header.js"></script>
+    <script src="assets/js/components/dashboard.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+
 </html>
